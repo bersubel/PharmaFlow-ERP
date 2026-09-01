@@ -13,7 +13,7 @@ import LoginPage from "../modules/auth/pages/LoginPage";
 import ProductsPage from "../modules/products/pages/ProductsPage";
 import InventoryPage from "../modules/inventory/pages/InventoryPage";
 import SalesPage from "../modules/sales/pages/SalesPage";
-import PurchasesPage from "../modules/Purchases/pages/PurchasesPage";
+import PurchasesPage from "../modules/purchases/pages/PurchasesPage";
 import CustomersPage from "../modules/customers/pages/CustomersPage";
 import SuppliersPage from "../modules/suppliers/pages/SuppliersPage";
 import ReportsPage from "../modules/reports/pages/ReportsPage";
