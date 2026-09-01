@@ -91,7 +91,7 @@ const loginUser = async (email, password) => {
   // 3. Verify password (via schema method or direct compare)
   let isMatch = false;
 
-console.log("LOGIN DEBUG");
+console.log("========== LOGIN DEBUG ==========");
 console.log("Email:", normalizedEmail);
 console.log("Password received:", password ? "YES" : "NO");
 console.log("Password length:", password?.length);
@@ -107,6 +107,7 @@ if (typeof user.comparePassword === "function") {
 }
 
 console.log("Password match:", isMatch);
+console.log("================================");
 
 if (!isMatch) {
   throw new Error("Invalid email or password");
