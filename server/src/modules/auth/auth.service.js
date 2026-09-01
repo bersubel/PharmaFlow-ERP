@@ -90,16 +90,27 @@ const loginUser = async (email, password) => {
 
   // 3. Verify password (via schema method or direct compare)
   let isMatch = false;
-  if (typeof user.comparePassword === "function") {
-    isMatch = await user.comparePassword(password);
-  } else {
-    const bcrypt = require("bcryptjs");
-    isMatch = await bcrypt.compare(password, user.password);
-  }
 
-  if (!isMatch) {
-    throw new Error("Invalid email or password");
-  }
+console.log("LOGIN DEBUG");
+console.log("Email:", normalizedEmail);
+console.log("Password received:", password ? "YES" : "NO");
+console.log("Password length:", password?.length);
+console.log("Stored hash exists:", !!user.password);
+console.log("Stored hash prefix:", user.password?.substring(0, 7));
+console.log("Stored hash length:", user.password?.length);
+
+if (typeof user.comparePassword === "function") {
+  isMatch = await user.comparePassword(password);
+} else {
+  const bcrypt = require("bcryptjs");
+  isMatch = await bcrypt.compare(password, user.password);
+}
+
+console.log("Password match:", isMatch);
+
+if (!isMatch) {
+  throw new Error("Invalid email or password");
+}
 
   // 4. Update last login timestamp
   await User.findByIdAndUpdate(user._id, {
