@@ -1,0 +1,70 @@
+/* client/src/components/layout/MainLayout.css */
+
+/* =========================================
+   MAIN LAYOUT
+========================================= */
+.main-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #f4f8f6;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+.main-content {
+  min-height: 100vh;
+  margin-left: 260px;
+  display: flex;
+  flex-direction: column;
+  background: #f4f8f6;
+  min-width: 0;
+}
+
+/* =========================================
+   PAGE CONTENT (Single source of truth for page outer padding)
+========================================= */
+.page-content {
+  flex: 1;
+  width: 100%;
+  padding: 24px 28px 36px;
+  background: #f4f8f6;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* =========================================
+   LARGE SCREENS
+========================================= */
+@media (min-width: 1500px) {
+  .main-content {
+    margin-left: 270px;
+  }
+  .page-content {
+    padding: 28px 32px 40px;
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+@media (max-width: 1100px) {
+  .main-content {
+    margin-left: 240px;
+  }
+  .page-content {
+    padding: 20px 18px 28px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+@media (max-width: 800px) {
+  .main-content {
+    margin-left: 0;
+  }
+  .page-content {
+    padding: 16px 14px 24px;
+  }
+}

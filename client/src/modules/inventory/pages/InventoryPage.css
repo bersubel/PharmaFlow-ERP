@@ -1,0 +1,1220 @@
+/* =========================================
+   INVENTORY PAGE
+========================================= */
+
+.inventory-page {
+    min-height: 100%;
+    padding-bottom: 40px;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.inventory-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 28px;
+}
+
+
+.inventory-eyebrow {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 7px;
+
+    margin-bottom: 8px;
+
+    color: #0b8f69;
+
+    font-size: 11px;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+
+.inventory-header h1 {
+    margin: 0;
+
+    color: #10251e;
+
+    font-size: 32px;
+    font-weight: 800;
+
+    letter-spacing: -0.04em;
+}
+
+
+.inventory-header p {
+    margin: 7px 0 0;
+
+    color: #71817b;
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.inventory-primary,
+.inventory-secondary {
+    min-height: 44px;
+
+    padding: 0 19px;
+
+    border-radius: 999px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.inventory-primary {
+    border: 0;
+
+    background: #0b8f69;
+
+    color: #ffffff;
+
+    box-shadow:
+        0 8px 20px
+        rgba(11, 143, 105, 0.16);
+}
+
+
+.inventory-primary:hover {
+    background: #087957;
+
+    transform: translateY(-1px);
+}
+
+
+.inventory-primary:disabled,
+.inventory-secondary:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.inventory-secondary {
+    border: 1px solid #dfe8e4;
+
+    background: #ffffff;
+
+    color: #62736c;
+}
+
+
+.inventory-secondary:hover {
+    border-color: #cbdad3;
+
+    background: #f8fbf9;
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.inventory-error {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 13px 16px;
+
+    margin-bottom: 20px;
+
+    border: 1px solid #ffd2d2;
+
+    border-radius: 16px;
+
+    background: #fff7f7;
+
+    color: #c73c3c;
+
+    font-size: 13px;
+}
+
+
+.inventory-error span {
+    flex: 1;
+}
+
+
+.inventory-error button {
+    border: 0;
+
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+
+/* =========================================
+   STATS
+========================================= */
+
+.inventory-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 18px;
+}
+
+
+.inventory-stat {
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #e6ede9;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+}
+
+
+.inventory-stat-icon {
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+}
+
+
+.inventory-stat-icon.green {
+    color: #087c58;
+
+    background: #e8f7f0;
+}
+
+
+.inventory-stat-icon.blue {
+    color: #2875b8;
+
+    background: #eaf4ff;
+}
+
+
+.inventory-stat-icon.orange {
+    color: #b87400;
+
+    background: #fff4dd;
+}
+
+
+.inventory-stat-icon.purple {
+    color: #7652ae;
+
+    background: #f2ebff;
+}
+
+
+.inventory-stat div span {
+    display: block;
+
+    color: #83918c;
+
+    font-size: 11px;
+    font-weight: 650;
+
+    margin-bottom: 6px;
+}
+
+
+.inventory-stat strong {
+    color: #173129;
+
+    font-size: 22px;
+}
+
+
+/* =========================================
+   MAIN CARD
+========================================= */
+
+.inventory-card {
+    position: relative;
+
+    overflow: visible;
+
+    border: 1px solid #e5ece8;
+
+    border-radius: 22px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 8px 30px
+        rgba(28, 54, 44, 0.035);
+}
+
+
+/* =========================================
+   CARD HEADER
+========================================= */
+
+.inventory-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 20px 0 24px;
+
+    border-bottom: 1px solid #edf2ef;
+}
+
+
+.inventory-tabs {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+.inventory-tabs button {
+    padding: 0 0 14px;
+
+    border: 0;
+
+    border-bottom: 2px solid transparent;
+
+    background: transparent;
+
+    color: #81908a;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.inventory-tabs button:hover {
+    color: #0b8f69;
+}
+
+
+.inventory-tabs button.active {
+    border-color: #0b8f69;
+
+    color: #087957;
+}
+
+
+/* =========================================
+   REFRESH
+========================================= */
+
+.inventory-refresh {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #e3ebe7;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    color: #5e7069;
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.inventory-refresh:hover {
+    color: #0b8f69;
+
+    border-color: #0b8f69;
+
+    background: #f5fbf8;
+}
+
+
+/* =========================================
+   TOOLBAR
+========================================= */
+
+.inventory-toolbar {
+    position: relative;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 18px 24px;
+}
+
+
+/* =========================================
+   SEARCH
+========================================= */
+
+.inventory-search {
+    height: 43px;
+
+    min-width: 260px;
+
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 0 13px;
+
+    border: 1px solid #e3ebe7;
+
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    color: #8a9993;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.inventory-search:focus-within {
+    border-color: #0b8f69;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(11, 143, 105, 0.08);
+}
+
+
+.inventory-search input {
+    flex: 1;
+
+    min-width: 0;
+
+    border: 0;
+
+    outline: 0;
+
+    background: transparent;
+
+    color: #1b2d26;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+.inventory-search input::placeholder {
+    color: #a1ada7;
+}
+
+
+.inventory-search button {
+    border: 0;
+
+    background: transparent;
+
+    color: #8a9993;
+
+    cursor: pointer;
+
+    display: grid;
+    place-items: center;
+}
+
+
+/* =========================================
+   CUSTOM FILTER DROPDOWN
+========================================= */
+
+.inventory-dropdown {
+    position: relative;
+
+    width: 175px;
+
+    flex-shrink: 0;
+
+    z-index: 100;
+}
+
+
+/* TRIGGER */
+
+.inventory-dropdown-trigger {
+    width: 100%;
+    height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding: 0 14px;
+
+    border: 1px solid #e3ebe7;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    color: #40544c;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+.inventory-dropdown-trigger:hover {
+    border-color: #bdd8cd;
+
+    background: #fcfefd;
+}
+
+
+.inventory-dropdown.open
+.inventory-dropdown-trigger {
+    border-color: #0b8f69;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(11, 143, 105, 0.08);
+}
+
+
+.inventory-dropdown-arrow {
+    flex-shrink: 0;
+
+    color: #71817b;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.inventory-dropdown.open
+.inventory-dropdown-arrow {
+    color: #0b8f69;
+
+    transform: rotate(180deg);
+}
+
+
+/* MENU */
+
+.inventory-dropdown-menu {
+    position: absolute;
+
+    top: calc(100% + 8px);
+
+    left: 0;
+    right: 0;
+
+    padding: 6px;
+
+    border: 1px solid #e1ebe6;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 45px
+        rgba(24, 53, 43, 0.14);
+
+    overflow: hidden;
+
+    animation:
+        inventory-dropdown-in
+        0.16s ease-out;
+
+    z-index: 1000;
+}
+
+
+@keyframes inventory-dropdown-in {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-5px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+/* OPTIONS */
+
+.inventory-dropdown-option {
+    width: 100%;
+
+    min-height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    padding: 0 11px;
+
+    border: 0;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #52645c;
+
+    font-family: inherit;
+
+    font-size: 13px;
+    font-weight: 550;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+
+.inventory-dropdown-option:hover {
+    background: #eef8f3;
+
+    color: #087957;
+}
+
+
+.inventory-dropdown-option.active {
+    background: #e5f6ef;
+
+    color: #087957;
+
+    font-weight: 700;
+}
+
+
+.inventory-dropdown-option svg {
+    flex-shrink: 0;
+
+    color: #0b8f69;
+}
+
+
+/* =========================================
+   TABLE
+========================================= */
+
+.inventory-table-wrap {
+    width: 100%;
+
+    overflow-x: auto;
+}
+
+
+.inventory-table-wrap table {
+    width: 100%;
+
+    min-width: 1000px;
+
+    border-collapse: collapse;
+}
+
+
+.inventory-table-wrap th {
+    padding: 13px 18px;
+
+    background: #f8fbf9;
+
+    border-bottom: 1px solid #e9efec;
+
+    color: #82908b;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.08em;
+
+    text-align: left;
+
+    text-transform: uppercase;
+}
+
+
+.inventory-table-wrap td {
+    padding: 15px 18px;
+
+    border-bottom: 1px solid #eff3f1;
+
+    color: #51615b;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+}
+
+
+.inventory-table-wrap tbody tr:hover {
+    background: #fbfdfc;
+}
+
+
+.inventory-table-wrap tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+
+/* =========================================
+   PRODUCT
+========================================= */
+
+.inventory-product {
+    min-width: 220px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 11px;
+}
+
+
+.inventory-product > span {
+    width: 38px;
+    height: 38px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: #e8f7f1;
+
+    color: #0b8f69;
+}
+
+
+.inventory-product strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #20352d;
+
+    font-size: 12px;
+}
+
+
+.inventory-product small {
+    color: #9aa59f;
+
+    font-size: 10px;
+}
+
+
+/* =========================================
+   BADGES
+========================================= */
+
+.inventory-badge,
+.inventory-expiry,
+.inventory-movement {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 5px 9px;
+
+    border-radius: 999px;
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+
+.success,
+.in {
+    background: #e8f7f0;
+
+    color: #087c58;
+}
+
+
+.warning {
+    background: #fff5dc;
+
+    color: #a86c00;
+}
+
+
+.danger,
+.out {
+    background: #ffebeb;
+
+    color: #c13f3f;
+}
+
+
+.neutral {
+    background: #f0f3f2;
+
+    color: #6f7d77;
+}
+
+
+/* =========================================
+   ADJUST
+========================================= */
+
+.inventory-adjust {
+    border: 0;
+
+    background: transparent;
+
+    color: #0b8f69;
+
+    font-family: inherit;
+
+    font-size: 12px;
+    font-weight: 750;
+
+    cursor: pointer;
+}
+
+
+.inventory-adjust:hover {
+    color: #087957;
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   STATE
+========================================= */
+
+.inventory-state {
+    min-height: 280px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    color: #7f8e88;
+
+    font-size: 13px;
+}
+
+
+.inventory-state svg {
+    color: #0b8f69;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.inventory-backdrop {
+    position: fixed;
+
+    z-index: 1200;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background:
+        rgba(14, 31, 24, 0.45);
+
+    backdrop-filter: blur(7px);
+}
+
+
+.inventory-modal {
+    width: min(520px, 100%);
+
+    max-height:
+        calc(100vh - 60px);
+
+    overflow-y: auto;
+
+    border-radius: 24px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 30px 80px
+        rgba(14, 36, 27, 0.2);
+}
+
+
+.inventory-modal header {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 25px 27px 20px;
+
+    border-bottom: 1px solid #edf2ef;
+}
+
+
+.inventory-modal h2 {
+    margin: 0;
+
+    color: #18352b;
+
+    font-size: 22px;
+}
+
+
+.inventory-modal p {
+    margin: 6px 0 0;
+
+    color: #89968f;
+
+    font-size: 12px;
+}
+
+
+.inventory-modal header > button {
+    width: 36px;
+    height: 36px;
+
+    border: 0;
+
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: #f1f5f3;
+
+    color: #65746e;
+
+    cursor: pointer;
+}
+
+
+.inventory-modal form {
+    padding: 23px 27px 27px;
+}
+
+
+.inventory-modal label {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 7px;
+
+    margin-bottom: 16px;
+
+    color: #50625a;
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+
+.inventory-modal em {
+    color: #0b8f69;
+
+    font-style: normal;
+}
+
+
+.inventory-modal input,
+.inventory-modal select,
+.inventory-modal textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border: 1px solid #dfe8e4;
+
+    border-radius: 12px;
+
+    outline: 0;
+
+    padding: 11px 12px;
+
+    background: #fbfcfc;
+
+    color: #263b33;
+
+    font-family: inherit;
+
+    font-size: 13px;
+}
+
+
+.inventory-modal input,
+.inventory-modal select {
+    height: 43px;
+}
+
+
+.inventory-modal textarea {
+    resize: vertical;
+}
+
+
+.inventory-modal input:focus,
+.inventory-modal select:focus,
+.inventory-modal textarea:focus {
+    border-color: #0b8f69;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(11, 143, 105, 0.07);
+}
+
+
+.inventory-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 15px;
+}
+
+
+.inventory-modal footer {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 22px;
+}
+
+
+/* =========================================
+   SPINNER
+========================================= */
+
+.spinning {
+    animation:
+        inventory-spin
+        0.8s
+        linear
+        infinite;
+}
+
+
+@keyframes inventory-spin {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .inventory-stats {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 720px) {
+
+    .inventory-header {
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .inventory-header >
+    .inventory-primary {
+        width: 100%;
+    }
+
+
+    .inventory-toolbar {
+        align-items: stretch;
+
+        flex-direction: column;
+    }
+
+
+    .inventory-search {
+        min-width: 0;
+    }
+
+
+    .inventory-dropdown {
+        width: 100%;
+    }
+
+
+    .inventory-backdrop {
+        padding: 12px;
+    }
+
+
+    .inventory-modal {
+        max-height:
+            calc(100vh - 24px);
+    }
+
+
+    .inventory-modal header,
+    .inventory-modal form {
+        padding-left: 20px;
+
+        padding-right: 20px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .inventory-stats {
+        grid-template-columns: 1fr;
+    }
+
+
+    .inventory-tabs {
+        gap: 14px;
+    }
+
+
+    .inventory-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .inventory-modal footer {
+        flex-direction:
+            column-reverse;
+    }
+
+
+    .inventory-modal footer button {
+        width: 100%;
+    }
+
+}
