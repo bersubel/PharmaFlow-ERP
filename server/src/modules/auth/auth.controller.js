@@ -44,11 +44,13 @@ const login = async (req, res) => {
       data: result,
     });
   } catch (error) {
-    return res.status(401).json({
-      success: false,
-      message: error.message || "Authentication failed",
-    });
-  }
+  console.error("LOGIN ERROR:", error);
+
+  return res.status(401).json({
+    success: false,
+    message: error.message || "Authentication failed",
+  });
+}
 };
 
 // ===============================

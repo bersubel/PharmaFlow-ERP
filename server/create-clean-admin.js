@@ -1,15 +1,21 @@
 require("dotenv").config();
+const dns = require("node:dns");
+
+// Force Google Public DNS to resolve SRV records locally
+dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
 const MONGO_URI =
   process.env.MONGO_URI ||
-  "mongodb+srv://<username>:<password>@cluster.mongodb.net/pharmaflow?retryWrites=true&w=majority";
+  "mongodb+srv://bersubel_db_user:LhWOXftyOnIYHgBB@pharmaflow-cluster.xtgz2x6.mongodb.net/pharmaflow?retryWrites=true&w=majority";
 
 async function run() {
   try {
     console.log("Connecting to MongoDB Atlas...");
     await mongoose.connect(MONGO_URI);
+    console.log("Connected to:", mongoose.connection.name);
 
     const db = mongoose.connection.db;
     const usersCol = db.collection("users");
