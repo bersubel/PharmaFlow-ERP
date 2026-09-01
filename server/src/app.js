@@ -20,7 +20,7 @@ const { startNotificationJobs } = require("./modules/notifications/notification.
 
 const app = express();
 
-// Enable CORS for all origins, headers, and methods to prevent 405 on OPTIONS preflight
+// Enable CORS for all routes (automatically handles OPTIONS preflights)
 app.use(
   cors({
     origin: "*",
@@ -28,9 +28,6 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With"],
   })
 );
-
-// Explicit preflight handling
-app.options("*", cors());
 
 // Body Parsers
 app.use(express.json());
