@@ -1,92 +1,54 @@
 const jwt = require("jsonwebtoken");
 const User = require("../modules/users/user.model");
 
+const protect = async (req, res, next) => {
+  try {
+    let token;
 
-const protect = async (req,res,next)=>{
-
-    try{
-
-
-        let token;
-
-
-        if(
-            req.headers.authorization &&
-            req.headers.authorization.startsWith("Bearer")
-        ){
-
-            token =
-            req.headers.authorization.split(" ")[1];
-
-        }
-
-
-
-        if(!token){
-
-            return res.status(401).json({
-
-                success:false,
-                message:"No token provided"
-
-            });
-
-        }
-
-
-
-        const decoded =
-            jwt.verify(
-                token,
-                process.env.JWT_SECRET
-            );
-
-
-
-        const user =
-            await User.findById(decoded.id)
-            .populate(
-                "role",
-                "name permissions"
-            );
-
-
-
-        if(!user){
-
-            return res.status(401).json({
-
-                success:false,
-                message:"User not found"
-
-            });
-
-        }
-
-
-
-        req.user = user;
-
-
-        next();
-
-
-
-    }catch(error){
-
-
-        return res.status(401).json({
-
-            success:false,
-            message:"Invalid token."
-
-        });
-
-
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
     }
 
+    if (!token) {
+      return res.status(401).json({
+        success: false,
+        message: "Access denied. No token provided.",
+      });
+    }
+
+    const decoded = jwt.verify(
+      token,
+      process.env.JWT_SECRET || "default_jwt_secret"
+    );
+
+    const user = await User.findById(decoded.id)
+      .populate("role", "name permissions");
+
+    if (!user) {
+      return res.status(401).json({
+        success: false,
+        message: "User not found or token has expired.",
+      });
+    }
+
+    if (!user.isActive) {
+      return res.status(403).json({
+        success: false,
+        message: "Account deactivated.",
+      });
+    }
+
+    req.user = user;
+    next();
+  } catch (error) {
+    return res.status(401).json({
+      success: false,
+      message: "Invalid or expired token.",
+    });
+  }
 };
-
-
 
 module.exports = protect;
